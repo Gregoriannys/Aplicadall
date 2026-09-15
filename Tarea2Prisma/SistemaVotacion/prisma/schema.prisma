@@ -1,0 +1,14 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+    
+}
+
+model Encuesta {
+  id       Int    @id @default(autoincrement())
+  pregunta String
+  opciones Json
+}

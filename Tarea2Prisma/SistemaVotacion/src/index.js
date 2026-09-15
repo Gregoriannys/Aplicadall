@@ -1,0 +1,16 @@
+import "dotenv/config";
+import express from "express";
+import { loggerMiddleware } from "./middlewares/logger.middleware.js";
+import encuestasRoutes from "./routes/encuestas.routes.js";
+
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+app.use(express.json());
+app.use(loggerMiddleware);
+
+app.use("/encuestas", encuestasRoutes);
+
+app.listen(PORT, () => {
+    console.log(`Servidor en el puerto ${PORT}`);
+});
